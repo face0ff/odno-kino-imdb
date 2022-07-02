@@ -1,0 +1,132 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>одно-кино</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'js/script.js' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <div class="preloader">
+        <div class="preloader__row">
+            <div class="preloader__item"></div>
+            <div class="preloader__item"></div>
+        </div>
+    </div>
+        
+        
+    <form method="post">
+        {% csrf_token %}
+        <div class="container">      
+    
+        <div class="poisk">
+            <input type="submit" class="button" value="поиск" name="start"> 
+        </div>   
+            
+        
+
+        <div class="buttons_ganre">
+            <div id='flex-container'>
+                <div class="box1"><label><input class="single-checkbox" type="checkbox"  name="comedy" value="" hidden/><span>comedy</span><br></label></div>
+                <div class="box2"><label><input class="single-checkbox" type="checkbox" name="action" value="" hidden/><span>action</span><br></label></div>
+                <div class="box3"><label><input class="single-checkbox" type="checkbox" name="drama" value="" hidden/><span>drama</span><br></label></div>
+                <div class="box4"><label><input class="single-checkbox" type="checkbox" name="fantasy" value="" hidden/><span>fantasy</span><br></label></div>
+                <div class="box5"><label><input class="single-checkbox" type="checkbox" name="family" value="" hidden/><span>family</span><br></label></div>
+                <div class="box6"><label><input type="checkbox" name="adventure" value="" hidden/><span>adventure</span><br></label></div>
+                <div class="box7"><label><input type="checkbox" name="sci-fi" value="" hidden/><span>sci-fi</span><br></label></div>
+                <div class="box8"><label><input type="checkbox" name="romance" value="" hidden/><span>romance</span><br></label></div>
+                <div class="box9"><label><input type="checkbox" name="horror" value="" hidden/><span>horror</span><br></label></div>
+                <div class="box10"><label><input type="checkbox" name="thriller" value="" hidden/><span>thriller</span><br></label></div>
+                <div class="box11"><label><input type="checkbox" name="film-noir" value="" hidden/><span>film-noir</span><br></label></div>
+                <div class="box12"><label><input type="checkbox" name="western" value="-хаус" hidden/><span>western</span><br></label></div>
+                <div class="box13"><label><input type="checkbox" name="history" value="" hidden/><span> history</span><br></label></div>
+                <div class="box14"><label><input type="checkbox" name="documentary" value="" hidden/><span>documentary</span><br></label></div>
+                <div class="box15"><label><input type="checkbox" name="reality-tv" value="" hidden/><span>reality-tv</span><br></label></div>
+                <div class="box16"><label><input type="checkbox" name="musical" value="" hidden/><span>musical</span><br></label></div>
+                <div class="box17"><label><input type="checkbox" name="talk-show" value="" hidden/><span>talk-show</span><br></label></div>
+                <div class="box18"><label><input type="checkbox" name="adult" value="" hidden/><span>adult</span><br></label></div>
+                <div class="box19"><label><input type="checkbox" name="war" value="" hidden/><span>war</span><br></label></div>
+                <div class="box20"><label><input type="checkbox" name="biography" value="" hidden/><span>biography</span><br></label></div>
+                <div class="box21"><label><input type="checkbox" name="sport" value="" hidden/><span>sport</span><br></label></div>
+                <div class="box22"><label><input type="checkbox" name="mystery" value="" hidden/><span>mystery</span><br></label></div>
+                <div class="box23"><label><input type="checkbox" name="news" value="" hidden/><span>news</span><br></label></div>
+                <div class="box24"><label><input type="checkbox" name="crime" value="" hidden/><span>crime</span><br></label></div>
+                <div class="box25"><label><input type="checkbox" name="game-show" value="" hidden/><span>game-show</span><br></label></div>
+                <div class="box26"><label><input type="checkbox" name="animation" value="" hidden/><span>animation</span><br></label></div>
+                <div class="box27"><label><input type="checkbox" name="short" value="" hidden/><span>short</span><br></label></div>
+                <div class="box28"><label><input type="checkbox" name="music" value="" hidden/><span>music</span><br></label></div>
+            </div>
+        </div>
+        <div class="next">
+            <input type="submit" class="button" value="еще" name="next">
+        </div>
+        <!-- <div class="movie">
+            <div><p align="center">MOST POPULAR MOVIE</p>
+                <div class="otvet">
+                    {% for i in list_top %}
+                        <p>{{ i.title }} {{ i.imdb }}<br><a href={{ i.href }}><img src={{ i.img }} width="100"></a></p>
+                    {% endfor%}
+                </div>
+            </div>
+        </div>
+             
+        <div class="tv">
+            <div><p align="center">MOST POPULAR TVs</p>
+                <div class="otvet">
+                    {% for i in list_top %}
+                        <p>{{ i.title }} {{ i.imdb }}<br><a href={{ i.href }}><img src={{ i.img }} width="100"></a></p>
+                    {% endfor%}
+                </div>
+            </div> 
+        </div> -->
+        
+            
+
+        
+
+            
+        <div class="ganre">            
+            {% for data in ganreShow %}
+
+                <p align="center">MOST POPULAR IN</p>
+                <p align="center">{{ data|upper }}</p>
+            {% endfor%}
+            <div class="otvet">
+        
+                {% for data in data reversed %}
+        
+        
+                    {% if data.nazfilm != "" %}
+                        <p>{{ data.nazFilm }}<br><a href={{ data.href }}><img src={{ data.pic_href }} width="200"></a></p>
+                
+                    {% else %}
+                        {{ data.nazFilm }}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    
+
+        
+
+
+    </form>
+        </div>
+    
+    <script>
+        window.onload = function () {
+          document.body.classList.add('loaded_hiding');
+          window.setTimeout(function () {
+            document.body.classList.add('loaded');
+            document.body.classList.remove('loaded_hiding');
+          }, 500);
+        }
+      </script>
+</body>
+
+</html>
