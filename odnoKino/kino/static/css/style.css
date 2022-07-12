@@ -1,5 +1,4 @@
-* {
-    box-sizing: border-box; }
+
 #flex-container {
     background: rgb(0, 0, 0); 
     display: flex; 
@@ -15,6 +14,7 @@
 }
 .container {
     display: grid; 
+    background: rgb(39, 21, 15);
     grid-template-columns: 1fr 1fr; 
     grid-template-rows: 10% 30% 10% 50%; 
     gap: 0px 0px; 
@@ -41,7 +41,12 @@
  }
 
 
+p{
 
+    font-family: 'Russo One', sans-serif;
+    color: #ebe0e0;
+    
+}
 
 
 
@@ -92,7 +97,7 @@ label {
     display:grid;
     text-align: center;
     font-family: 'Russo One', sans-serif;
-    color: #9e1515;
+    color: #ebe0e0;
     grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
     
     }
@@ -128,7 +133,7 @@ label {
     right: 0;
     bottom: 0;
     /* фоновый цвет элемента */
-    background: #e0e0e0;
+    background: #291010;
     /* размещаем блок над всеми элементами на странице (это значение должно быть больше, чем у любого другого позиционированного элемента на странице) */
     z-index: 1001;
     }
@@ -149,7 +154,7 @@ label {
     position: absolute;
     display: inline-block;
     top: 0;
-    background-color: #337ab7;
+    background-color: #b9273a;
     border-radius: 100%;
     width: 35px;
     height: 35px;
@@ -181,10 +186,11 @@ label {
     }
     
     .loaded_hiding .preloader {
-    transition: 0.3s opacity;
+    transition: 1s opacity;
     opacity: 0;
     }
     
     .loaded .preloader {
     display: none;
+    
     }

@@ -25,7 +25,7 @@
         <div class="container">      
     
         <div class="poisk">
-            <input type="submit" class="button" value="поиск" name="start"> 
+            <input type="submit" class="button" value="SEARCH" name="start"> 
         </div>   
             
         
@@ -63,7 +63,7 @@
             </div>
         </div>
         <div class="next">
-            <input type="submit" class="button" value="еще" name="next">
+            <input type="submit" class="button" value="MORE" name="next">
         </div>
         <!-- <div class="movie">
             <div><p align="center">MOST POPULAR MOVIE</p>
@@ -102,7 +102,7 @@
         
         
                     {% if data.nazfilm != "" %}
-                        <p>{{ data.nazFilm }}<br><a href={{ data.href }}><img src={{ data.pic_href }} width="200"></a></p>
+                        <p>{{ data.nazFilm|upper }}<br><a href={{ data.href }}><img src={{ data.pic_href }} width="200"></a></p>
                 
                     {% else %}
                         {{ data.nazFilm }}

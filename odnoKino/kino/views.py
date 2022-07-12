@@ -79,7 +79,9 @@ async def get_page_data(url):
             pic_href_small = pic['loadlate']
             pic_href =(pic_href_small.split("."))
             pic_href = pic_href[:3]
-            pic_href_add = "._V1_QL75_UX190_CR0,2,190,281_.jpg"
+            # https://m.media-amazon.com/images/M/MV5BMjEyNzExMzU5Nl5BMl5BanBnXkFtZTcwOTA2OTYyMQ@@._V1_QL75_UX190_CR0,33,190,281_.jpg
+            # https://m.media-amazon.com/images/M/MV5BODMyNGMxZGEtY2RiZS00YTViLWIzYTctMmFhZDNmZTIyMTczXkEyXkFqcGdeQXVyOTk3NjY3NTM@._V1_QL75_UY281_CR1,0,190,281_.jpg
+            pic_href_add = "._V1_QL75_UX190_CR0,0,190,281_.jpg"
             pic_href = (" ".join(pic_href).replace(" ", "."))+pic_href_add
             all_ganre = soup.find(class_="genre").text
             all_ganre = re.sub(r"[ \n]", "", all_ganre)
